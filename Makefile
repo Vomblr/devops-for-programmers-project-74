@@ -23,6 +23,6 @@ compose-restart:
 	docker compose restart
 
 compose-test:
-	docker compose -f docker-compose.yml up --abort-on-container-exit --exit-code-from app
+	docker compose -f docker-compose.yml up --abort-on-container-exit --exit-code-from app --build
 
 .PHONY: build
