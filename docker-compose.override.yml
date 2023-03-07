@@ -11,5 +11,17 @@ services:
     - ./app:/app
     command: bash -c 'npm run dev'
 
+  
+  caddy:
+    image: caddy:2.6.2
+    restart: unless-stopped
+    ports:
+      - "80:80"
+      - "443:443"
+    depends_on:
+      - "app"
+    volumes:
+      - $PWD/services/caddy/Caddyfile:/etc/caddy/Caddyfile
+
 volumes:
   app:

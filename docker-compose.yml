@@ -6,9 +6,16 @@ services:
       context: .
       dockerfile: Dockerfile.production
     image: vomblr/devops-for-programmers-project-74
-#    volumes:
-#    - ./app:/app
-    command: bash -c 'npm test'
+    command: bash -c 'sleep 3 && npm start'
+    depends_on:
+      - db
+
+  db:
+    image: postgres:14.5
+    restart: always
+    environment:
+      POSTGRES_USER: "${DATABASE_USERNAME:-postgres}"
+      POSTGRES_PASSWORD: "${DATABASE_PASSWORD:-password}"
 
 volumes:
   app:
