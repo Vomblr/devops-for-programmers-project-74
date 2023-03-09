@@ -12,7 +12,7 @@ services:
       DATABASE_PASSWORD: "${DATABASE_PASSWORD:-password}"
       DATABASE_PORT: 5432
       DATABASE_HOST: db
-    command: bash -c 'sleep 3 && npm start'
+    command: bash -c 'sleep 3 && npm test'
     depends_on:
       - db
 
